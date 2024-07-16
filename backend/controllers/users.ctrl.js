@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 // signup function... create a new user
 exports.signupUser = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { firstname, lastname, username, email, password } = req.body;
 
   // hashed password
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -11,20 +11,28 @@ exports.signupUser = async (req, res) => {
   try {
     // create new user
     const newUser = new userModel({
-      name,
+      firstname,
+      lastname,
+      username,
       email,
       password: hashedPassword,
     });
 
     // check for existing email
     const existingEmail = await userModel.findOne({ email });
-    if (existingEmail) {
-      res.status(400).send({ status: "failed", error: "Email has been taken" });
-    } else {
-      // add new user if no existing email
-      await newUser.save();
-      res.status(200).send({ status: "success", data: newUser });
-    }
+    if (existingEmail)
+      res.status(400).send({ status: "failed", error: "Email already exist" });
+
+    // check for existing username
+    const existingUsername = await userModel.findOne({ username });
+    if (existingUsername)
+      res
+        .status(400)
+        .send({ status: "failed", error: "Username already exist" });
+
+    // if no existing username or existing email register user
+    await newUser.save();
+    res.status(200).send({ status: "success", data: newUser });
   } catch (error) {
     // catch error if any
     res.status(400).send({ status: "failed", error: error.message });
@@ -33,8 +41,8 @@ exports.signupUser = async (req, res) => {
 
 //login function... login a user
 exports.loginUser = async (req, res) => {
-  const { name, email, password } = req.body;
-  const user = await userModel.findOne({ $or: [{ email }, { name }] });
+  const { username, email, password } = req.body;
+  const user = await userModel.findOne({ $or: [{ email }, { username }] });
 
   try {
     // check if user exist
