@@ -51,4 +51,17 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
+app.options("*", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:51 73");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-COntrol-Allow-headers", [
+    "X-Requested-With",
+    "content-type",
+    "credentials",
+  ]);
+  res.header("Access-Control-ALlow-Method", "GET, POST, DELETE, PATCH, PUT");
+  res.status(200);
+  next();
+});
+
 module.exports = app;
