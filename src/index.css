@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .headerContainer{
+        @apply flex flex-col items-start justify-center gap-2;
+    }
+    
+    .headerContainer>h1{
+        @apply text-2xl font-bold;
+    }
+    .headerContainer>p{
+        @apply text-lg font-light text-gray-500;
+    }
+
+    .formContainer{
+        @apply flex flex-col items-start justify-start gap-6 w-full;
+    }
+
+    .formContainer div {
+        @apply w-full
+    }
+
+    .formContainer>div>label{
+        @apply flex flex-col items-start justify-start gap-2 font-light text-sm;
+    }
+
+    .formContainer div label input{
+        @apply w-full p-2 rounded-md border border-gray-300 outline-none text-gray-600 text-base placeholder:text-gray-500;
+    }
+
+    .formContainer button{
+        @apply bg-blue-700 p-1 w-2/5 text-white rounded-md py-2 hover:scale-90 scale-100 hover:duration-100 duration-100 cursor-pointer; 
+    }
+}  

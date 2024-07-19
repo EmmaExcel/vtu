@@ -2,9 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+import { AuthProvider } from './context/authcontext.jsx'
+import { ChakraProvider } from '@chakra-ui/react'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <ChakraProvider>
+    <AuthProvider>
     <App />
-  </React.StrictMode>,
+    </AuthProvider>
+    </ChakraProvider>
+  </React.StrictMode>
 )
