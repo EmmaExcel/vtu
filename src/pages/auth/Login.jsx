@@ -38,7 +38,7 @@ const Login = () => {
             return
         }
 
-        
+
         try {
 
         const response = await fetch('http://localhost:5172/api/users/login',
@@ -70,9 +70,11 @@ const Login = () => {
 
     return (
         <div className="bg-white h-screen border flex items-center justify-center ">
-            <div className=" flex justify-between gap-10  w-11/12 items-center p-14">
-                <div className="border bg-white drop-shadow-md h-auto w-4/12 py-8 px-14 rounded-sm border">
+            <div className=" flex justify-between gap-10  w-11/12 items-center p-14 lg:justify-between md:justify-center sm:justify-center">
+                <div className="border bg-white drop-shadow-md h-auto lg:w-4/12 md:w-4/5 sm:w-4/5 py-8 px-14 rounded-sm border">
                     <div className="flex flex-col gap-6 ">
+
+
                         <div className="headerContainer">
                             <h1>Sign in to Vento</h1>
                             <p>To sign in, please type in the email address linked to your Vento account.</p>
@@ -110,7 +112,9 @@ const Login = () => {
 
                     </div>
                 </div>
-                <div className=" h-[330px] w-2/4 p-10 bg-[url('./src/assets/sideimg.png')] bg-cover rounded-lg drop-shadow-lg border">
+
+
+                <div className=" sm:hidden md:hidden lg:flex hidden h-[330px] w-2/4 p-10 bg-[url('./src/assets/sideimg.png')] bg-cover rounded-lg drop-shadow-lg border">
 
                 </div>
             </div>

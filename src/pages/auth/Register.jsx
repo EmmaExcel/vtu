@@ -102,9 +102,9 @@ const Register = () => {
 
     return (
         <div className="bg-white h-screen border flex items-center justify-center ">
-            <div className=" flex justify-between gap-10  w-11/12 items-center p-14">
-                <div className="border bg-white drop-shadow-md h-auto w-4/12 py-8 px-14 rounded-sm border">
-                    <div className="flex flex-col gap-6 ">
+            <div className=" flex justify-between gap-10  w-11/12 items-center p-14 lg:justify-between md:justify-center sm:justify-center">
+            <div className="border bg-white drop-shadow-md h-auto lg:w-4/12 md:w-4/5 sm:w-4/5 py-8 px-14 rounded-sm border">
+            <div className="flex flex-col gap-6 ">
                         <div className="headerContainer">
                             <h1>Email & Password</h1>
                             <p>Create a Vento profile with a few details. Your password must have at least 8 characters including letters and a number.</p>
@@ -152,7 +152,7 @@ const Register = () => {
 
                     </div>
                 </div>
-                <div className=" h-[330px] w-2/4 p-10 bg-[url('./src/assets/sideimg.png')] bg-cover rounded-lg drop-shadow-lg border">
+                <div className=" sm:hidden md:hidden lg:flex hidden h-[330px] w-2/4 p-10 bg-[url('./src/assets/sideimg.png')] bg-cover rounded-lg drop-shadow-lg border">
 
                 </div>
             </div>
