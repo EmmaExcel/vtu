@@ -1,4 +1,3 @@
-import { Button, Input, InputGroup, InputRightElement } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
@@ -72,7 +71,7 @@ const Register = () => {
 
         
         try {
-            const response = await fetch('http://localhost:5172/api/users/login', {
+            const response = await fetch('http://localhost:3000/api/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
