@@ -55,7 +55,7 @@ const Register = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/api/users/login', {
+            const response = await fetch('http://localhost:3000/api/users/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -125,6 +125,23 @@ const Register = () => {
                                             type="text"
                                             placeholder='Doe'
                                             value={form.lastname}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                </label>
+                            </div>
+                            <div className="">
+                                <label>
+                                    User Name
+                                    <div className="flex items-center border border-gray-300 outline-none text-gray-600 px-1 rounded-lg">
+                                        <input
+                                            required
+                                            name='username'
+                                            id='username'
+                                            className='appearance-none border-none'
+                                            type="text"
+                                            placeholder='Doe'
+                                            value={form.username}
                                             onChange={handleChange}
                                         />
                                     </div>
